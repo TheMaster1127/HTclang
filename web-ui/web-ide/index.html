@@ -649,8 +649,8 @@ strcpy(var1, "AZDSFAWE SRFDAWE SRDF SEDXFV")
 
 ; loop over all words and display them alongside its index
 Loop, Parse, var1, " " {
-    printf("%d`n", A_Index)
-    printf("%s`n", A_LoopField)
+    printf("%d\\n", A_Index)
+    printf("%s\\n", A_LoopField)
 }
 
 ; free all items1 since its the first loop parse
@@ -661,7 +661,7 @@ free(var1)
 ; This is a C programming block. It will stay intact and included in the C output.
 ___c start
 // The syntax highlighting will change to C here since this is now C code only.
-printf("%s\n", "==========================");
+printf("%s\\n", "==========================");
 ___c end
 
 ; normal loop that will run 5 times and print its index
