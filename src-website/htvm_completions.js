@@ -24,7 +24,7 @@ let HTVM_Syntax_AutoComplete = []; // Global array for autocomplete
 let allKeyWordsOut = "";
 let allFunctionNamesString = ""; // Global string to store function names
 async function getFunctionNames() {
-    const url = 'https://raw.githubusercontent.com/TheMaster1127/HTVM/refs/heads/main/HTVM-instructions.txt';
+    const url = 'https://raw.githubusercontent.com/TheMaster1127/HTclang/refs/heads/main/HTVM-instructions.txt';
     
     try {
         const response = await fetch(url);
@@ -93,7 +93,7 @@ async function getAllKeyWordsIn() {
     else
     {
         // If key is missing, fetch data from the remote file
-    const url = 'https://raw.githubusercontent.com/TheMaster1127/HTVM/refs/heads/main/HTVM-instructions.txt';
+    const url = 'https://raw.githubusercontent.com/TheMaster1127/HTclang/refs/heads/main/HTVM-instructions.txt';
     const fetchedData = await fetchFirst161Lines(url);
     if (fetchedData) 
     {

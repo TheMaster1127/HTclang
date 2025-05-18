@@ -18130,7 +18130,7 @@ std::string compiler(std::string htCode, std::string allInstructionFile, std::st
         allLibsToPutAtTop = StringTrimRight(allLibsToPutAtTopTEMP, 1);
         includeLibsInCppIf = 1;
         if (langToConvertTo == "cpp") {
-            allLibsToPutAtTop = "#include " + Chr(60) + "stdio.h" + Chr(62) + "" + Chr(10) + "#include " + Chr(60) + "stdlib.h" + Chr(62) + "" + Chr(10) + "#include " + Chr(60) + "string.h" + Chr(62) + Chr(10) + "#include " + Chr(60) + "stdbool.h" + Chr(60) + Chr(10) + Chr(10) + allLibsToPutAtTop;
+            allLibsToPutAtTop = "#include " + Chr(60) + "stdio.h" + Chr(62) + "" + Chr(10) + "#include " + Chr(60) + "stdlib.h" + Chr(62) + "" + Chr(10) + "#include " + Chr(60) + "string.h" + Chr(62) + Chr(10) + "#include " + Chr(60) + "stdbool.h" + Chr(62) + Chr(10) + Chr(10) + allLibsToPutAtTop;
         }
         if (langToConvertTo == "cs") {
             allLibsToPutAtTop = "using System;" + Chr(10) + "using System.Collections.Generic;" + Chr(10) + allLibsToPutAtTop;
@@ -18251,7 +18251,7 @@ std::string compiler(std::string htCode, std::string allInstructionFile, std::st
             htCode = jsHTMLupCode + Chr(10) + htCode + Chr(10) + jsHTMLdownCode;
         }
         if (langToConvertTo == "cpp" && includeLibsInCppIf == 0) {
-            htCode = "#include " + Chr(60) + "stdio.h" + Chr(62) + "" + Chr(10) + "#include " + Chr(60) + "stdlib.h" + Chr(62) + "" + Chr(10) + "#include " + Chr(60) + "string.h" + Chr(62) + Chr(10) + "#include " + Chr(60) + "stdbool.h" + Chr(60) + Chr(10) +  Chr(10) + htCode;
+            htCode = "#include " + Chr(60) + "stdio.h" + Chr(62) + "" + Chr(10) + "#include " + Chr(60) + "stdlib.h" + Chr(62) + "" + Chr(10) + "#include " + Chr(60) + "string.h" + Chr(62) + Chr(10) + "#include " + Chr(60) + "stdbool.h" + Chr(62) + Chr(10) +  Chr(10) + htCode;
         }
         if (langToConvertTo == "cs") {
             htCode = Chr(10) + htCode;

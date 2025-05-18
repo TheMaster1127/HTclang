@@ -347,7 +347,7 @@ let build_in_funcs = '';
 let allInstFormGithub = "";
 function fetchBuildInFuncs() {
     // Fetch the HTVM-instructions.txt file from the URL
-    fetch('https://raw.githubusercontent.com/TheMaster1127/HTVM/refs/heads/main/HTVM-instructions.txt')
+    fetch('https://raw.githubusercontent.com/TheMaster1127/HTclang/refs/heads/main/HTVM-instructions.txt')
         .then(response => response.text())  // Get the raw text of the file
         .then(data => {
             // Split the text into an array of lines
@@ -962,7 +962,7 @@ async function runHTVM(fileContents, fileName) {
 
     // If there's no stored data, fetch it from the GitHub file
     if (!storedData) {
-        fetch('https://raw.githubusercontent.com/TheMaster1127/HTVM/refs/heads/main/HTVM-instructions.txt')
+        fetch('https://raw.githubusercontent.com/TheMaster1127/HTclang/refs/heads/main/HTVM-instructions.txt')
             .then(response => response.text())
             .then(data => {
                 // Split the data into lines
