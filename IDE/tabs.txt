@@ -3,3 +3,6 @@ C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\property fil
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\property files\htclang.htpr
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\HTclang.htvm
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile26560.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile26560.c
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile674407.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile674407.c
