@@ -1,0 +1,6 @@
+IDE/node_modules/
+IDE/temp files/
+testing/*.exe
+*.exe
+HTVM-v1-DEPRECATED/*.exe
+.vscode/*

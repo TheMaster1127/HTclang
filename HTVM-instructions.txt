@@ -1,0 +1,261 @@
+cpp
+htclang
+StringTrimLeft,OUTVAR,INVAR,param1|StringTrimRight,OUTVAR,INVAR,param1|Random,OUTVAR,param1,param2|Sleep,INVAR|FileRead,OUTVAR,'param1|FileAppend,INVAR,'param1|FileDelete,'INVAR|Sort,INOUTVAR,'param1|MsgBox,'param1
+alliance
+crew
+proc
+struct
+prop
+this
+include
+___start
+___end
+___cpp start
+___cpp end
+___py start
+___py end
+___js start
+___js end
+___go start
+___go end
+___lua start
+___lua end
+___cs start
+___cs end
+___java start
+___java end
+___kt start
+___kt end
+___rb start
+___rb end
+___nim start
+___nim end
+___ahk start
+___ahk end
+___swift start
+___swift end
+___dart start
+___dart end
+___ts start
+___ts end
+___groovy start
+___groovy end
+___htvm start
+___htvm end
+___inhtvm start
+___inhtvm end
+{
+}
+null
+true
+false
+void
+double
+char
+uint8
+uint16
+uint32
+uint64
+int
+str
+bool
+float
+int8
+int16
+int32
+int64
+if
+else if
+else
+while
+Loop
+Loop,
+Loop, Parse,
+continue
+break
+func
+await
+async
+throw
+ErrorMsg
+try
+catch
+finally
+return
+.add
+.pop
+.size
+.insert
+.rm
+.indexOf
+arr
+arr int
+arr str
+arr float
+arr bool
+var
+let
+const
+end
+global
+;
+'''1
+'''2
+`
+main
+.
++
+-
+*
+/
+%
+**
+=
+===
+!=
+>
+<
+>=
+<=
+and
+or
+!
+&
+|
+^
+~
+<<
+>>
+>>>
+:=
++=
+.=
+-=
+*=
+/=
+%=
+<<=
+>>=
+>>>=
+&=
+|=
+^=
+?
+:
+++
+--
+0
+A_Index
+A_LoopField
+on
+off
+off
+on
+on
+off
+off
+off
+on
+off
+off
+off
+off
+
+NOTE cpp means c cuz im too lazy to change it
+
+func======================func==============
+lang: cpp
+name: LoopParseFunc
+libs: null
+description: null
+
+
+typedef struct {
+    char** tokens;
+    int count;
+} LoopParseFuncHelp;
+
+LoopParseFuncHelp LoopParseFunc(const char* str, const char* delim1, const char* delim2) {
+    LoopParseFuncHelp result = { NULL, 0 };
+    if (!str) return result;
+
+    // If both delimiters are NULL or empty, split into single chars
+    if ((!delim1 || delim1[0] == '\0') && (!delim2 || delim2[0] == '\0')) {
+        int len = (int)strlen(str);
+        result.tokens = malloc(len * sizeof(char*));
+        if (!result.tokens) {
+            perror("malloc failed");
+            exit(1);
+        }
+        for (int i = 0; i < len; i++) {
+            result.tokens[i] = malloc(2);  // 1 char + '\0'
+            if (!result.tokens[i]) {
+                perror("malloc failed");
+                exit(1);
+            }
+            result.tokens[i][0] = str[i];
+            result.tokens[i][1] = '\0';
+        }
+        result.count = len;
+        return result;
+    }
+
+    // Combine delimiters into one string
+    char combinedDelims[3] = {0};
+    int idx = 0;
+    if (delim1 && delim1[0] != '\0') combinedDelims[idx++] = delim1[0];
+    if (delim2 && delim2[0] != '\0') combinedDelims[idx++] = delim2[0];
+    combinedDelims[idx] = '\0';
+
+    // Copy input string because strtok modifies it
+    char* copy = strdup(str);
+    if (!copy) {
+        perror("strdup failed");
+        exit(1);
+    }
+
+    // Allocate initial tokens array
+    int capacity = 10;
+    result.tokens = malloc(capacity * sizeof(char*));
+    if (!result.tokens) {
+        perror("malloc failed");
+        free(copy);
+        exit(1);
+    }
+
+    char* token = strtok(copy, combinedDelims);
+    while (token != NULL) {
+        if (result.count >= capacity) {
+            capacity *= 2;
+            char** temp = realloc(result.tokens, capacity * sizeof(char*));
+            if (!temp) {
+                perror("realloc failed");
+                // Free all allocated tokens before exit
+                for (int i = 0; i < result.count; i++)
+                    free(result.tokens[i]);
+                free(result.tokens);
+                free(copy);
+                exit(1);
+            }
+            result.tokens = temp;
+        }
+        result.tokens[result.count++] = strdup(token);
+        token = strtok(NULL, combinedDelims);
+    }
+
+    free(copy);
+    return result;
+}
+
+void freeLoop(LoopParseFuncHelp* res) {
+    for (int i = 0; i < res->count; i++) {
+        free(res->tokens[i]);
+    }
+    free(res->tokens);
+    res->tokens = NULL;
+    res->count = 0;
+}
+
+
+funcEND======================funcEND==============
+

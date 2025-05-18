@@ -1,0 +1,5 @@
+alliance ExampleAlliance {
+    proc void greet() {
+        print("Hello from ExampleAlliance!")
+    }
+}
