@@ -656,7 +656,7 @@ Loop, 5 {
       name: 'root',
       isFolder: true,
       children: [
-        { name: 'main.htvm', isFolder: false, content: OUTCODE }
+        { name: 'main.htclang', isFolder: false, content: OUTCODE }
       ]
     };
     function loadFileSystem() {
@@ -999,7 +999,7 @@ Loop, 5 {
         xml: [".xml"],
         xquery: [".xq", ".xquery"],
         yaml: [".yaml", ".yml"],
-        htvm: [".ht", ".hti", ".htpy", ".hth", ".htvm"]
+        htvm: [".ht", ".hti", ".htpy", ".hth", ".htclang"]
       };
 
       // Get the extension with dot
@@ -1391,8 +1391,8 @@ console.log = function (...args) {
         }
         setTimeout(() => { console.log = originalLog; }, 1000);
       }
-      else if (filename.endsWith(".htvm")) {
-        //console.log("themaster1127 will make and call a func here to handle .htvm files!!!");
+      else if (filename.endsWith(".htclang")) {
+        //console.log("themaster1127 will make and call a func here to handle .htclang files!!!");
         runHTVM(openFile.content, filename);
         OUTCODE = "";
       }
