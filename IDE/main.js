@@ -6,7 +6,7 @@ const EventEmitter = require("events");
 const DiscordRPC = require('discord-rpc');
 
 // Initialize Discord RPC
-const clientId = '1326134917658185769';
+const clientId = '1373690310445764770';
 const rpc = new DiscordRPC.Client({ transport: 'ipc' });
 let discordReady = false;
 

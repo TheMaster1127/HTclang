@@ -25173,7 +25173,7 @@ Loop, % argHTVMinstrMORE.size()
 
 ;print(StringTrimRight(argCODEfile, StrLen(langFileExtension)) . langToConvertTo)
 
-if (SubStrLastChars(argCODEfile, 4) = ".cpp") or (SubStrLastChars(argCODEfile, 3) = ".py") or (SubStrLastChars(argCODEfile, 3) = ".js") or (SubStrLastChars(argCODEfile, 3) = ".go") or (SubStrLastChars(argCODEfile, 4) = ".lua") or (SubStrLastChars(argCODEfile, 3) = ".cs") or (SubStrLastChars(argCODEfile, 5) = ".java") or (SubStrLastChars(argCODEfile, 3) = ".kt") or (SubStrLastChars(argCODEfile, 3) = ".rb") or (SubStrLastChars(argCODEfile, 4) = ".nim") or (SubStrLastChars(argCODEfile, 4) = ".ahk") or (SubStrLastChars(argCODEfile, 6) = ".swift") or (SubStrLastChars(argCODEfile, 5) = ".dart") or (SubStrLastChars(argCODEfile, 3) = ".ts") or (SubStrLastChars(argCODEfile, 7) = ".groovy") or (SubStrLastChars(argCODEfile, StrLen("." . Trim(StrSplit(StrReplace(FileRead(argHTVMinstr), Chr(13), ""), Chr(10), 2)))) = "." . Trim(StrSplit(StrReplace(FileRead(argHTVMinstr), Chr(13), ""), Chr(10), 2))) and (numOfParams = 2)
+if (SubStrLastChars(argCODEfile, 2) = ".c") or (SubStrLastChars(argCODEfile, 3) = ".py") or (SubStrLastChars(argCODEfile, 3) = ".js") or (SubStrLastChars(argCODEfile, 3) = ".go") or (SubStrLastChars(argCODEfile, 4) = ".lua") or (SubStrLastChars(argCODEfile, 3) = ".cs") or (SubStrLastChars(argCODEfile, 5) = ".java") or (SubStrLastChars(argCODEfile, 3) = ".kt") or (SubStrLastChars(argCODEfile, 3) = ".rb") or (SubStrLastChars(argCODEfile, 4) = ".nim") or (SubStrLastChars(argCODEfile, 4) = ".ahk") or (SubStrLastChars(argCODEfile, 6) = ".swift") or (SubStrLastChars(argCODEfile, 5) = ".dart") or (SubStrLastChars(argCODEfile, 3) = ".ts") or (SubStrLastChars(argCODEfile, 7) = ".groovy") or (SubStrLastChars(argCODEfile, StrLen("." . Trim(StrSplit(StrReplace(FileRead(argHTVMinstr), Chr(13), ""), Chr(10), 2)))) = "." . Trim(StrSplit(StrReplace(FileRead(argHTVMinstr), Chr(13), ""), Chr(10), 2))) and (numOfParams = 2)
 {
 
 
@@ -25182,7 +25182,7 @@ if (SubStrLastChars(argCODEfile, 4) = ".cpp") or (SubStrLastChars(argCODEfile, 3
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-if (SubStrLastChars(argCODEfile, 4) = ".cpp") 
+if (SubStrLastChars(argCODEfile, 2) = ".c") 
 {
     OUTCODE := compiler(argCODE, Trim(FileRead(argHTVMinstr)), "notHTVM", "cpp")
     FileDelete(Trim(argCODEfile))
@@ -25324,7 +25324,7 @@ OUTCODE := compiler(argCODE, Trim(FileRead(argHTVMinstr)), "full")
 }   
 
 
-print(StringTrimRight(argCODEfile, StrLen(langFileExtension)) . langToConvertTo)
+print(StringTrimRight(argCODEfile, StrLen(langFileExtension)) . "c")
 
 
 if (langToConvertTo = "js") and (useJavaScriptInAfullHTMLfile = "on")
@@ -25334,8 +25334,8 @@ FileAppend(OUTCODE, StringTrimRight(argCODEfile, StrLen(langFileExtension)) . "h
 }
 else
 {
-FileDelete(StringTrimRight(argCODEfile, StrLen(langFileExtension)) . langToConvertTo)
-FileAppend(OUTCODE, StringTrimRight(argCODEfile, StrLen(langFileExtension)) . langToConvertTo)
+FileDelete(StringTrimRight(argCODEfile, StrLen(langFileExtension)) . "c")
+FileAppend(OUTCODE, StringTrimRight(argCODEfile, StrLen(langFileExtension)) . "c")
 }
 
 

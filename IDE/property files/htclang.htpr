@@ -1,0 +1,3 @@
+"C:\Users\The_M\OneDrive\Desktop\GitHub~~~Projects\HTclang\HTclang\HTclang.exe" "%FILENAME%" "C:\Users\The_M\OneDrive\Desktop\GitHub~~~Projects\HTclang\HTclang\HTVM-instructions.txt"
+gcc "%ONLYFILENAME%.c" "-o" "%ONLYFILENAME%"
+cd "%DIRFULLPATH%" && "%ONLYFILENAME%.exe"

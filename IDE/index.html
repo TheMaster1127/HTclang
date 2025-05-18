@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Sixtyfour+Convergence&family=Whisper&display=swap" rel="stylesheet">
 
     <title>
-      HTVM
+      HTclang
       IDE
     </title>
     <style>
@@ -1900,23 +1900,11 @@ updateDimensions();
               latestTabsUsed.push(currentTabFullPathPATH);
               lastTabIndex = FullPathfiles.indexOf(latestTabsUsed[latestTabsUsed.length - 2]);
 let imageNameForLang = ""
-if (fileExtension == "js")
+if (fileExtension == "c")
 {
-imageNameForLang = "icon_js";
+imageNameForLang = "icon_c";
 }
-else if (fileExtension == "py")
-{
-imageNameForLang = "icon_py";
-}
-else if (fileExtension == "cpp")
-{
-imageNameForLang = "icon_cpp";
-}
-else if (fileExtension == "html")
-{
-imageNameForLang = "icon_html";
-}
-else if (fileExtension == "htvm" || fileExtension == "ht" || fileExtension == "hth" || fileExtension == "htpy" || fileExtension == "htpc" || fileExtension == "htpr")
+else if (fileExtension == "htvm" || fileExtension == "ht" || fileExtension == "htclang" || fileExtension == "htpy" || fileExtension == "htpc" || fileExtension == "htpr")
 {
 imageNameForLang = "icon_512x512";
 }
@@ -2365,7 +2353,7 @@ tab.style.fontWeight = "bold";  // This makes the text bold
 
                 // Create the new file path using the IDE directory and temp files folder
                 const path = require('path'); // Ensure you are using the Node 'path' module
-                const newFullPath = path.join(fullPathOfTheIDEdir, 'temp files', `newfile${randomNumber}.htvm`);
+                const newFullPath = path.join(fullPathOfTheIDEdir, 'temp files', `newfile${randomNumber}.htclang`);
 
                 console.log('New file path:', newFullPath); // For debugging, log the full path
 
