@@ -404,8 +404,8 @@
           
           
 <div id="lang-dropdown" class="dropdown">
-  <div class="dropdown-item" onclick="changeLanguage('C++', 'images/cpp.png', 'cpp')">
-    <img src="images/cpp.png" alt="C++">
+  <div class="dropdown-item" onclick="changeLanguage('C', 'images/cpp.png', 'cpp')">
+    <img src="images/cpp.png" alt="C">
     <span>C</span>
   </div>
 </div>
@@ -536,27 +536,7 @@ window.onload = function() {
 
 
 
-    // Get the saved value from localStorage; default to 'true' if not set
-    let runJsAfterHTVM = localStorage.getItem('runJsAfterHTVM');
 
-    // If the value is null (never set), default to 'true' and save it
-    if (runJsAfterHTVM === null) {
-      runJsAfterHTVM = 'true';
-      localStorage.setItem('runJsAfterHTVM', runJsAfterHTVM);
-    }
-
-    // Convert the string to a boolean
-    runJsAfterHTVM = runJsAfterHTVM === 'true';
-
-    // Set the checkbox based on the stored value
-    document.getElementById('runJsAfterHTVM').checked = runJsAfterHTVM;
-
-    // Function to handle toggle change
-    document.getElementById('runJsAfterHTVM').addEventListener('change', function () {
-      runJsAfterHTVM = this.checked;
-      localStorage.setItem('runJsAfterHTVM', runJsAfterHTVM ? 'true' : 'false'); // Save as string
-      console.log("Run JS after HTVM conversion: " + runJsAfterHTVM);
-    });
 
 
 
