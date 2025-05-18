@@ -638,7 +638,7 @@ free(var1)
 ; This is a C programming block. It will stay intact and included in the C output.
 ___c start
 // The syntax highlighting will change to C here since this is now C code only.
-printf("%s\`n", "==========================");
+printf("%s\`n", "==========================")\;
 ___c end
 ; normal loop that will run 5 times and print its index
 Loop, 5 {
@@ -1201,7 +1201,7 @@ let selectedLangExtensionOLD = selectedLangExtension;
         resetGlobalVarsOfHTVMjs();
 
         // Replace the extension with '.js'
-        fileName = fileName.replace(/\.[^/.]+$/, "." + "cpp");
+        fileName = fileName.replace(/\.[^/.]+$/, "." + "c");
 
         // Call fileMakeOrOverride to save the output
         fileMakeOrOverride(fileName, OUTCODE);
