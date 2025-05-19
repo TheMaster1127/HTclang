@@ -6,3 +6,7 @@ C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\n
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile26560.c
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile674407.htclang
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile674407.c
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\Tic-tac-toe.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\Tic-tac-toe.c
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\strManipulation.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\strManipulation.c
