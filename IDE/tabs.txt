@@ -1,12 +1,12 @@
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\tabs.txt
-C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\property files\ht.htpc
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\property files\c.htpc
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\property files\htclang.htpr
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\HTclang.htvm
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile26560.htclang
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile26560.c
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile674407.htclang
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile674407.c
-C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\Tic-tac-toe.htclang
-C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\Tic-tac-toe.c
-C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\strManipulation.htclang
-C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\strManipulation.c
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN HTclang\Tic-tac-toe.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN HTclang\Tic-tac-toe.c
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN HTclang\strManipulation.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN HTclang\strManipulation.c

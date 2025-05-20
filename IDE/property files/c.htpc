@@ -1,0 +1,2 @@
+gcc "%ONLYFILENAME%.c" "-o" "%ONLYFILENAME%"
+cd "%DIRFULLPATH%" && "%ONLYFILENAME%.exe"

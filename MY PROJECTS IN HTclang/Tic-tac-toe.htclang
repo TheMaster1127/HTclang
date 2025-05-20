@@ -1,0 +1,194 @@
+___c start
+#include <stdio.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+
+void sleep_ms(int milliseconds) {
+#ifdef _WIN32
+    Sleep(milliseconds);
+#else
+    usleep(milliseconds * 1000);
+#endif
+}
+___c end
+
+func int *initBoard() {
+    int *board := malloc(9 * sizeof(int))
+    if (!board) {
+        perror("malloc failed")
+        return null
+    }
+    Loop, 9 {
+        board[A_Index] := 0
+    }
+    return board
+}
+
+func int win(int *board) {
+
+int win := 0
+
+if (board[0] = 1) and (board[1] = 1) and (board[2] = 1) {
+    win := 1
+}
+else if (board[3] = 1) and (board[4] = 1) and (board[5] = 1) {
+    win := 1
+}
+else if (board[6] = 1) and (board[7] = 1) and (board[8] = 1) {
+    win := 1
+}
+else if (board[0] = 1) and (board[3] = 1) and (board[6] = 1) {
+    win := 1
+}
+else if (board[1] = 1) and (board[4] = 1) and (board[7] = 1) {
+    win := 1
+}
+else if (board[2] = 1) and (board[5] = 1) and (board[8] = 1) {
+    win := 1
+}
+else if (board[0] = 1) and (board[4] = 1) and (board[8] = 1) {
+    win := 1
+}
+else if (board[2] = 1) and (board[4] = 1) and (board[6] = 1) {
+    win := 1
+}
+else if (board[0] = 2) and (board[1] = 2) and (board[2] = 2) {
+    win := 2
+}
+else if (board[3] = 2) and (board[4] = 2) and (board[5] = 2) {
+    win := 2
+}
+else if (board[6] = 2) and (board[7] = 2) and (board[8] = 2) {
+    win := 2
+}
+else if (board[0] = 2) and (board[3] = 2) and (board[6] = 2) {
+    win := 2
+}
+else if (board[1] = 2) and (board[4] = 2) and (board[7] = 2) {
+    win := 2
+}
+else if (board[2] = 2) and (board[5] = 2) and (board[8] = 2) {
+    win := 2
+}
+else if (board[0] = 2) and (board[4] = 2) and (board[8] = 2) {
+    win := 2
+}
+else if (board[2] = 2) and (board[4] = 2) and (board[6] = 2) {
+    win := 2
+}
+
+; returns who wins if its 0 no one wins
+return win
+}
+
+func bool checkForDraw(int *board) {
+    Loop, 9 {
+        if (board[A_Index] = 0) {
+            return false
+        }
+    }
+    return true
+}
+
+; main func
+main
+int *board := initBoard()
+if (board = null) {
+    return 1
+}
+int player1 := 1
+int player2 := 2
+int turn := 1
+bool game := true
+int pin := 0
+while (game = true) {
+    Loop, 9 {
+        printf("%d|", board[A_Index])
+        if (A_Index = 2) or (A_Index = 5) or (A_Index = 8) {
+            printf("`n%s`n", "------")
+        }
+    }
+    printf("%s", "Enter 1-9 to place you'r pin: ")
+    int res := scanf("%d", &pin)
+    if (res != 1) {
+        printf("%s`n", "ERROR YOU need to enter a number bettwen 1 to 9")
+        int c
+        while ((c=getchar()) != (char)10 and c != EOF) {}
+        continue
+    }
+    if (pin < 1 or pin > 9) {
+        printf("%s`n", "ERROR YOU need to enter a number bettwen 1 to 9")
+    } else {
+        printf("%s`n", "NICE!!!")
+        if (turn = 1) {
+            if (board[pin - 1] = 0) {
+                board[pin - 1] := 2
+                turn := 2
+            }
+        }
+        else if (turn = 2) {
+            if (board[pin - 1] = 0) {
+                board[pin - 1] := 1
+                turn := 1
+            }
+        }
+        if (win(board) = 1)
+        {
+            Loop, 5 {
+                printf("%s`n", "============")
+            }
+        
+            Loop, 9 {
+                printf("%d|", board[A_Index])
+                if (A_Index = 2) or (A_Index = 5) or (A_Index = 8) {
+                    printf("`n%s`n", "------")
+                }
+            }       
+            printf("%s`n", "Player 1 WON!!!`nGG")
+            printf("%s`n", "EXITING...")
+            sleep_ms(2500)
+            game := false
+        }
+        else if (win(board) = 2)
+        {
+            Loop, 5 {
+                printf("%s`n", "============")
+            }
+            
+            Loop, 9 {
+                printf("%d|", board[A_Index])
+                if (A_Index = 2) or (A_Index = 5) or (A_Index = 8) {
+                    printf("`n%s`n", "------")
+                }
+            }
+            printf("%s`n", "Player 2 WON!!!`nGG")
+            printf("%s`n", "EXITING...")
+            sleep_ms(2500)
+            game := false
+        }
+        else if (checkForDraw(board)) {
+            Loop, 5 {
+                printf("%s`n", "============")
+            }
+            
+            Loop, 9 {
+                printf("%d|", board[A_Index])
+                if (A_Index = 2) or (A_Index = 5) or (A_Index = 8) {
+                    printf("`n%s`n", "------")
+                }
+            }
+            printf("%s`n", "DRAW DRAW DRAW DRAW`nNO ONE WINS :(")
+            printf("%s`n", "EXITING...")
+            sleep_ms(2500)
+            game := false
+        }
+        
+    }
+}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; after use free it
+free(board)

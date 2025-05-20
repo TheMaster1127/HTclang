@@ -1,1 +1,1 @@
-C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\strManipulation.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN HTclang\strManipulation.c

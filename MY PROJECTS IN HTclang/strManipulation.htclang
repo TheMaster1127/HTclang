@@ -1,0 +1,276 @@
+func str *StrSplit(str *string, str delimiter, int count) {
+    int currentCount := 0
+    str *start := string
+    size_t len := strlen(string)
+
+    size_t substring_len0 := 0
+    Loop, % len {
+        if (string[A_Index] = delimiter) {
+            currentCount++
+            if (currentCount = count - 1) {
+                substring_len0 := A_Index + 1
+                start := &string[A_Index + 1]
+                break
+            }
+        }
+    }
+
+    size_t substring_len := 0
+    Loop, % len {
+        if (start[A_Index] = delimiter) {
+            substring_len := A_Index
+            start[A_Index] := (char)0
+            break
+        }
+    }
+
+    str *out := malloc(substring_len + 1)
+    if (!out) {
+        return null
+    }
+    strncpy(out, start, substring_len)
+    out[substring_len] := (char)0
+    string[substring_len0 + substring_len] := delimiter
+    return out
+}
+
+func int countChars(str *string, str delimiter) {
+    int count := 0
+    Loop, % strlen(string) {
+        if (string[A_Index] = delimiter) {
+            count++
+        }
+    }
+    return count
+}
+
+func str *StringTrimLeft(str *string, int count) {
+
+str *line := string
+
+line := &string[count]
+
+str *out := malloc(strlen(string) + 1)
+if (!out) {
+    perror("malloc failed")
+    return null
+}
+strcpy(out, line)
+
+return out
+}
+
+func str *StringTrimRight(str *string, int count) {
+size_t lenToTrim := strlen(string) - count
+
+str *out := malloc(lenToTrim + 1)
+if (!out) {
+    perror("malloc failed")
+    return null
+}
+strcpy(out, string)
+out[lenToTrim] := (char)0
+return out
+
+}
+
+func str *StrLower(str *string) {
+
+size_t len := strlen(string)
+
+str *out := malloc(len + 1)
+if (!out) {
+    perror("malloc failed")
+    return null
+}
+
+Loop, % len {
+out[A_Index] := tolower(string[A_Index])
+}
+
+out[len] := (char)0
+return out
+
+}
+
+func str *StrTitleCase(str *string) {
+
+size_t len := strlen(string)
+
+str *out := malloc(len + 1)
+if (!out) {
+    perror("malloc failed")
+    return null
+}
+
+Loop, % len {
+
+if (A_Index = 0) {
+    out[A_Index] := toupper(string[A_Index])
+}
+else
+{
+if (string[A_Index - 1] = ' ')
+{
+out[A_Index] := toupper(string[A_Index])
+}
+else
+{
+out[A_Index] := tolower(string[A_Index])
+}
+
+}
+
+
+}
+
+out[len] := (char)0
+
+return out
+}
+
+func str *Trim(str *string) {
+
+size_t len := strlen(string)
+
+str *start := string
+
+size_t substring_len0 := 0
+size_t substring_len := 0
+
+int beenHere := 0
+Loop, % len {
+
+if (string[A_Index] != (char)32 && string[A_Index] != (char)9 && string[A_Index] != (char)10 && string[A_Index] != (char)13 && string[A_Index] != (char)11 and beenHere = 0)
+{
+beenHere := 1
+substring_len0 := A_Index
+start := &string[A_Index]
+}
+
+}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+beenHere := 0
+
+size_t last := 0
+size_t REALlast := 0
+str strTemp := 0
+Loop, % len {
+last := len - 1 - A_Index
+
+if (string[last] != (char)32 && string[last] != (char)9 && string[last] != (char)10 && string[last] != (char)13 && string[last] != (char)11 and beenHere = 0)
+{
+beenHere := 1
+substring_len := last
+strTemp := start[last]
+start[last] := (char)0
+REALlast := last
+}
+
+}
+
+    str *out := malloc((substring_len - substring_len0) + 1)
+    if (!out) {
+        return null
+    }
+    strncpy(out, start, substring_len - substring_len0)
+    out[substring_len - substring_len0] := (char)0
+    string[REALlast] := strTemp
+    return out
+}
+
+func size_t InStr(str *string, str *what) {
+    size_t len := strlen(string)
+    size_t lenWhat := strlen(what)
+    
+    if (lenWhat = 0 || len < lenWhat) {
+        return 0 
+    }
+    
+    Loop, % len - lenWhat
+    {
+        if (strncmp(&string[A_Index], what, lenWhat) = 0) {
+            return A_Index + 1
+        }
+    }
+}
+
+
+func str *SubStr(str *string, int num1, int num2) {
+
+    if (!string or num1 < 1 or num2 < 0) { 
+        return null
+    }
+
+    size_t len := strlen(string)
+    if ((size_t)num1 > len) {   
+        return null
+    }
+
+    ; make it 1 indexed
+    num1--
+
+    str *line := string
+    line := &string[num1]
+
+    str *out := malloc(num2 + 1)
+    if (!out) {
+        perror("malloc failed")
+        return null
+    }
+    strncpy(out, line, num2)
+    out[num2] := (char)0
+    return out
+}
+
+
+main
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+str *myStr := malloc(30)
+strcpy(myStr, "HeLLo MaN whats UP")
+
+str *myStr2 := malloc(50)
+strcpy(myStr2, "    - hadsfouSDbkhjdsfdwaesdf")
+str *myStr3 := malloc(61)
+strcpy(myStr3, "     hadsfouSDbkhjdsfdwaesdf      ")
+
+printf("%d`n", countChars(myStr, ' '))
+
+str *res := StrSplit(myStr, ' ', 2)
+str *res2 := StringTrimLeft(myStr, 2)
+str *res3 := StringTrimRight(myStr, 4)
+str *res4 := StrLower(myStr)
+str *res5 := StrTitleCase(myStr)
+str *res6 := Trim(myStr2)
+str *res7 := Trim(myStr3)
+
+printf("%s`n", res)
+printf("%s`n", res2)
+printf("%s`n", res3)
+printf("%s`n", res4)
+printf("%s`n", res5)
+printf("%s`n", res6)
+printf("%s`n", res7)
+printf("%s`n", myStr)
+printf("%s`n", myStr2)
+printf("%s`n", myStr3)
+printf("%zu`n", InStr("hello man whats up", "man"))
+printf("%s`n", SubStr("hello man whats up", 1, 4))
+
+
+
+
+
+free(myStr)
+free(myStr2)
+free(myStr3)
+free(res)
+free(res2)
+free(res3)
+free(res4)
+free(res5)
+free(res6)
+free(res7)
+
+
+
