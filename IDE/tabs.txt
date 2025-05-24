@@ -10,3 +10,7 @@ C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN H
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN HTclang\Tic-tac-toe.c
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN HTclang\strManipulation.htclang
 C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\MY PROJECTS IN HTclang\strManipulation.c
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile302026.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile302026.c
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile442286.htclang
+C:\Users\The_M\OneDrive\Desktop\GitHub Projects\HTclang\HTclang\IDE\temp files\newfile442286.c

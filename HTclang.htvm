@@ -24824,7 +24824,7 @@ includeLibsInCppIf := 1
 
 if (langToConvertTo = "cpp")
 {
-allLibsToPutAtTop := "#include " . Chr(60) . "ctype.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "stdio.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "stdlib.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "string.h" . Chr(62) . Chr(10) . "#include " . Chr(60) . "stdbool.h" . Chr(62) . Chr(10) . Chr(10) . allLibsToPutAtTop
+allLibsToPutAtTop := "#include " . Chr(60) . "stdint.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "ctype.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "stdio.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "stdlib.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "string.h" . Chr(62) . Chr(10) . "#include " . Chr(60) . "stdbool.h" . Chr(62) . Chr(10) . Chr(10) . allLibsToPutAtTop
 }
 
 if (langToConvertTo = "cs")
@@ -25031,7 +25031,7 @@ htCode := jsHTMLupCode . Chr(10) . htCode . Chr(10) . jsHTMLdownCode
 
 if (langToConvertTo = "cpp") and (includeLibsInCppIf = 0)
 {
-htCode := "#include " . Chr(60) . "ctype.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "stdio.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "stdlib.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "string.h" . Chr(62) . Chr(10) . "#include " . Chr(60) . "stdbool.h" . Chr(62) . Chr(10) .  Chr(10) . htCode
+htCode := "#include " . Chr(60) . "stdint.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "ctype.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "stdio.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "stdlib.h" . Chr(62) . "" . Chr(10) . "#include " . Chr(60) . "string.h" . Chr(62) . Chr(10) . "#include " . Chr(60) . "stdbool.h" . Chr(62) . Chr(10) .  Chr(10) . htCode
 }
 if (langToConvertTo = "cs")
 {
