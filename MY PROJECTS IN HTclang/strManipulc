@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -5,15 +6,15 @@
 #include <stdbool.h>
 
 int main(int argc, char* argv[]) {
+    #include <stdint.h>;
     #include <ctype.h>;
     #include <stdio.h>;
     #include <stdlib.h>;
     #include <string.h>;
     #include <stdbool.h>;
-    #include <stdint.h>;
-    char *StrSplit(char *string, char delimiter, int count) {
+    count) = ; {
         0 = ;
-        char *start = string
+        string = ;
         strlen(string) = ;
         0 = ;
         for (size_t A_Index1 = 0
@@ -38,7 +39,7 @@ int main(int argc, char* argv[]) {
                 break;
             }
         }
-        char *out = malloc(substring_len + 1)
+        1) = ;
         if (!out) {
             return NULL;
         }
@@ -59,10 +60,10 @@ int main(int argc, char* argv[]) {
         }
         return count;
     }
-    char *StringTrimLeft(char *string, int count) {
-        char *line = string
+    count) = ; {
+        string = ;
         line = &string[count]
-        char *out = malloc(strlen(string) + 1)
+        1) = ;
         if (!out) {
             perror("malloc failed");
             return NULL;
@@ -70,9 +71,9 @@ int main(int argc, char* argv[]) {
         strcpy(out, line);
         return out;
     }
-    char *StringTrimRight(char *string, int count) {
+    count) = ; {
         count = ;
-        char *out = malloc(lenToTrim + 1)
+        1) = ;
         if (!out) {
             perror("malloc failed");
             return NULL;
@@ -81,9 +82,9 @@ int main(int argc, char* argv[]) {
         out[lenToTrim] = (char)0
         return out;
     }
-    char *StrLower(char *string) {
+    *string) = ; {
         strlen(string) = ;
-        char *out = malloc(len + 1)
+        1) = ;
         if (!out) {
             perror("malloc failed");
             return NULL;
@@ -96,9 +97,9 @@ int main(int argc, char* argv[]) {
         out[len] = (char)0
         return out;
     }
-    char *StrTitleCase(char *string) {
+    *string) = ; {
         strlen(string) = ;
-        char *out = malloc(len + 1)
+        1) = ;
         if (!out) {
             perror("malloc failed");
             return NULL;
@@ -119,9 +120,9 @@ int main(int argc, char* argv[]) {
         out[len] = (char)0
         return out;
     }
-    char *Trim(char *string) {
+    *string) = ; {
         strlen(string) = ;
-        char *start = string
+        string = ;
         0 = ;
         0 = ;
         0 = ;
@@ -138,7 +139,7 @@ int main(int argc, char* argv[]) {
         beenHere = 0
         0 = ;
         0 = ;
-        char strTemp = 0
+        0 = ;
         for (size_t A_Index7 = 0
         A_Index7 < len + 0
         A_Index7++) {
@@ -151,7 +152,7 @@ int main(int argc, char* argv[]) {
                 REALlast = last
             }
         }
-        char *out = malloc((substring_len - substring_len0) + 1)
+        1) = ;
         if (!out) {
             return NULL;
         }
@@ -174,7 +175,7 @@ int main(int argc, char* argv[]) {
             }
         }
     }
-    char *SubStr(char *string, size_t num1, size_t num2) {
+    num2) = ; {
         if (!string || num1 < 1 || num2 < 0) {
             return NULL;
         }
@@ -184,9 +185,9 @@ int main(int argc, char* argv[]) {
         }
         // make it 1 indexed
         num1--;
-        char *line = string
+        string = ;
         line = &string[num1]
-        char *out = malloc(num2 + 1)
+        1) = ;
         if (!out) {
             perror("malloc failed");
             return NULL;
@@ -195,7 +196,7 @@ int main(int argc, char* argv[]) {
         out[num2] = (char)0
         return out;
     }
-    char *StrReplace(char *string, char *find, char *replace) {
+    *replace) = ; {
         strlen(string) = ;
         strlen(find) = ;
         strlen(replace) = ;
@@ -209,7 +210,7 @@ int main(int argc, char* argv[]) {
         }
         //printf("%d\n", count)
         lenFind) = ;
-        char *out = malloc(outLen + 1)
+        1) = ;
         0 = ;
         0 = ;
         for (size_t A_Index10 = 0
@@ -390,45 +391,46 @@ int main(int argc, char* argv[]) {
         // Else, use the existing output buffer
         return output;
     }
-    char **arrSplit(char *string, char del) {
+    countARR) = ; {
         strlen(string) = ;
-        string[originalLen] = del
-        string[originalLen + 1] = (char)0
         1 = ;
-        char **ARR = malloc(countARR * sizeof(char *))
-        strlen(string) = ;
+        malloc(totalMem) = ;
+        **)block = ;
+        *)) = ;
         0 = ;
         0 = ;
-        char *temp = malloc(len + 1)
-        if (!temp) {
-            perror("malloc failed");
-            return NULL;
-        }
         for (size_t A_Index11 = 0
-        A_Index11 < len + 0
+        A_Index11 < countARR + 0
         A_Index11++) {
-            temp[A_Index11] = 0
-        }
-        for (size_t A_Index12 = 0
-        A_Index12 < len + 0
-        A_Index12++) {
-            if (string[A_Index12] == del) {
-                ARR[count] = strdup(temp)
-                count++;
-                memset(temp, 0, len);
-                countTemp = 0
-            } else {
-                temp[countTemp] = string[A_Index12]
-                countTemp++;
+            strIndex = ;
+            0 = ;
+            // Find length of next substring
+            while (string[strIndex] != 0 && string[strIndex] != del) {
+                strIndex++;
+                len++;
+            }
+            // Store pointer to current write position
+            ARR[A_Index11] = strData + writePos
+            // Copy characters into result
+            for (size_t A_Index12 = 0
+            A_Index12 < len + 0
+            A_Index12++) {
+                strData[writePos] = string[start + A_Index12]
+                writePos++;
+            }
+            // Null-terminate
+            strData[writePos] = 0
+            writePos++;
+            // Skip delimiter
+            if (string[strIndex] == del) {
+                strIndex++;
             }
         }
-        string[strlen(string) - 1] = (char)0
-        free(temp);
         return ARR;
     }
-    char **resize(char **myArr, size_t *capacity) {
+    *capacity) = ; {
         2 = ;
-        char **newArr = realloc(myArr, newCapacity * sizeof(char *))
+        *)) = ;
         if (!newArr) {
             perror("realloc failed");
             // Don't return old pointer if realloc fails
@@ -440,20 +442,20 @@ int main(int argc, char* argv[]) {
     }
     int main(int argc, char* argv[]) {
         //
-        char *myStr = malloc(30)
+        malloc(30) = ;
         strcpy(myStr, "HeLLo MaN whats UP");
-        char *myStr2 = malloc(50)
+        malloc(50) = ;
         strcpy(myStr2, "    - hadsfouSDbkhjdsfdwaesdf");
-        char *myStr3 = malloc(61)
+        malloc(61) = ;
         strcpy(myStr3, "     hadsfouSDbkhjdsfdwaesdf      ");
         printf("%d\\n", countChars(myStr, ' '));
-        char *res = StrSplit(myStr, ' ', 2)
-        char *res2 = StringTrimLeft(myStr, 2)
-        char *res3 = StringTrimRight(myStr, 4)
-        char *res4 = StrLower(myStr)
-        char *res5 = StrTitleCase(myStr)
-        char *res6 = Trim(myStr2)
-        char *res7 = Trim(myStr3)
+        2) = ;
+        2) = ;
+        4) = ;
+        StrLower(myStr) = ;
+        StrTitleCase(myStr) = ;
+        Trim(myStr2) = ;
+        Trim(myStr3) = ;
         printf("%s\\n", res);
         printf("%s\\n", res2);
         printf("%s\\n", res3);
@@ -489,14 +491,13 @@ int main(int argc, char* argv[]) {
         printf("%s\\n", StrReplaceBoundaries("var;var.var,var(var)", "var", "R"));
         printf("%s\\n", StrReplaceBoundaries("var(var(var))", "var", "R"));
         printf("%s\\n", StrReplaceBoundaries("((var))", "var", "replaced"));
-        // Allocate 20 bytes for an 18-char string (+1 for original '\\0', +1 for arrSplit's temporary delimiter modification).
-        // arrSplit needs this extra byte to safely append a temporary delimiter and then a new '\\0' in-place.
-        char var1[20] = "hello man whats up"
-        char **arr = arrSplit(var1, ' ')
-        // back to normal
-        printf("|%s|\\n", var1);
+        "hello man whats up" = ;
         // add +1 since there are 3 spaces but 4 words — that makes sense.
         1 = ;
+        // we need to pass the len
+        loopLen) = ;
+        // back to normal
+        printf("|%s|\\n", var1);
         printf("%d\\n", loopLen);
         for (size_t A_Index13 = 0
         A_Index13 < loopLen + 0
@@ -506,11 +507,6 @@ int main(int argc, char* argv[]) {
         }
         // back to normal
         printf("|%s|\\n", var1);
-        for (size_t A_Index14 = 0
-        A_Index14 < loopLen + 0
-        A_Index14++) {
-            free(arr[A_Index14]);
-        }
         free(arr);
         free(myStr);
         free(myStr2);
@@ -526,7 +522,7 @@ int main(int argc, char* argv[]) {
         //
         //
         //
-        char *var11 = strdup("hello man whats up")
+        strdup("hello man whats up") = ;
         if (!var11) {
             perror("malloc failed");
             return -1;
@@ -542,7 +538,7 @@ int main(int argc, char* argv[]) {
         try resize
         5 = ;
         0 = ;
-        char **arr1 = malloc(arr1_s * sizeof(char *))
+        *)) = ;
         arr1[arr1_i++] = strdup("hello")
         arr1[arr1_i++] = strdup("man")
         arr1[arr1_i++] = strdup("whats")
@@ -552,42 +548,37 @@ int main(int argc, char* argv[]) {
         arr1[arr1_i++] = strdup("man")
         arr1[arr1_i++] = strdup("whats")
         arr1[arr1_i++] = strdup("up")
+        for (size_t A_Index14 = 0
+        A_Index14 < arr1_i + 0
+        A_Index14++) {
+            printf("%s\\n", arr1[A_Index14]);
+        }
+        // free arr1
         for (size_t A_Index15 = 0
         A_Index15 < arr1_i + 0
         A_Index15++) {
-            printf("%s\\n", arr1[A_Index15]);
-        }
-        // free arr1
-        for (size_t A_Index16 = 0
-        A_Index16 < arr1_i + 0
-        A_Index16++) {
-            free(arr1[A_Index16]);
+            free(arr1[A_Index15]);
         }
         free(arr1);
         //
-        // Allocate 20 bytes for an 18-char string (+1 for original '\\0', +1 for arrSplit's temporary delimiter modification).
-        // arrSplit needs this extra byte to safely append a temporary delimiter and then a new '\\0' in-place.
-        char *var12 = strndup("hello man whats up", strlen("hello man whats up") + 2)
-        char **arr2 = arrSplit(var12, ' ')
-        // back to normal
-        printf("|%s|\\n", var12);
+        strdup("hello   man whats up") = ;
         // add +1 since there are 3 spaces but 4 words — that makes sense.
         1 = ;
-        printf("%d\\n", loopLen2);
-        for (size_t A_Index17 = 0
-        A_Index17 < loopLen2 + 0
-        A_Index17++) {
-            printf("%s\\n", arr2[A_Index17]);
-            printf("%d\\n", A_Index17);
+        // we need to pass len
+        loopLen2) = ;
+        // back to normal
+        printf("|%s|\\n", var12);
+        printf("%zu\\n", loopLen2);
+        for (size_t A_Index16 = 0
+        A_Index16 < loopLen2 + 0
+        A_Index16++) {
+            printf("|%s|\\n", arr2[A_Index16]);
+            printf("%c\\n", arr2[A_Index16]);
+            printf("%zu\\n", A_Index16);
         }
         // back to normal
         printf("|%s|\\n", var12);
         free(var12);
-        for (size_t A_Index18 = 0
-        A_Index18 < loopLen2 + 0
-        A_Index18++) {
-            free(arr2[A_Index18]);
-        }
         free(arr2);
         return 0;
     }

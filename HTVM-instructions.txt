@@ -57,7 +57,7 @@ uint16
 uint32
 uint64
 int
-str
+char
 bool
 float
 int8

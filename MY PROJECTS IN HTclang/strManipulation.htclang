@@ -1,6 +1,6 @@
-func str *StrSplit(str *string, str delimiter, int count) {
+func char *StrSplit(char *string, char delimiter, int count) {
     int currentCount := 0
-    str *start := string
+    char *start := string
     size_t len := strlen(string)
 
     size_t substring_len0 := 0
@@ -24,7 +24,7 @@ func str *StrSplit(str *string, str delimiter, int count) {
         }
     }
 
-    str *out := malloc(substring_len + 1)
+    char *out := malloc(substring_len + 1)
     if (!out) {
         return null
     }
@@ -34,7 +34,7 @@ func str *StrSplit(str *string, str delimiter, int count) {
     return out
 }
 
-func int countChars(str *string, str delimiter) {
+func int countChars(char *string, char delimiter) {
     int count := 0
     int len := strlen(string)
     Loop, % len {
@@ -45,13 +45,13 @@ func int countChars(str *string, str delimiter) {
     return count
 }
 
-func str *StringTrimLeft(str *string, int count) {
+func char *StringTrimLeft(char *string, int count) {
 
-str *line := string
+char *line := string
 
 line := &string[count]
 
-str *out := malloc(strlen(string) + 1)
+char *out := malloc(strlen(string) + 1)
 if (!out) {
     perror("malloc failed")
     return null
@@ -61,10 +61,10 @@ strcpy(out, line)
 return out
 }
 
-func str *StringTrimRight(str *string, int count) {
+func char *StringTrimRight(char *string, int count) {
 size_t lenToTrim := strlen(string) - count
 
-str *out := malloc(lenToTrim + 1)
+char *out := malloc(lenToTrim + 1)
 if (!out) {
     perror("malloc failed")
     return null
@@ -75,11 +75,11 @@ return out
 
 }
 
-func str *StrLower(str *string) {
+func char *StrLower(char *string) {
 
 size_t len := strlen(string)
 
-str *out := malloc(len + 1)
+char *out := malloc(len + 1)
 if (!out) {
     perror("malloc failed")
     return null
@@ -94,11 +94,11 @@ return out
 
 }
 
-func str *StrTitleCase(str *string) {
+func char *StrTitleCase(char *string) {
 
 size_t len := strlen(string)
 
-str *out := malloc(len + 1)
+char *out := malloc(len + 1)
 if (!out) {
     perror("malloc failed")
     return null
@@ -130,11 +130,11 @@ out[len] := (char)0
 return out
 }
 
-func str *Trim(str *string) {
+func char *Trim(char *string) {
 
 size_t len := strlen(string)
 
-str *start := string
+char *start := string
 
 size_t substring_len0 := 0
 size_t substring_len := 0
@@ -155,7 +155,7 @@ beenHere := 0
 
 size_t last := 0
 size_t REALlast := 0
-str strTemp := 0
+char strTemp := 0
 Loop, % len {
 last := len - 1 - A_Index
 
@@ -170,7 +170,7 @@ REALlast := last
 
 }
 
-    str *out := malloc((substring_len - substring_len0) + 1)
+    char *out := malloc((substring_len - substring_len0) + 1)
     if (!out) {
         return null
     }
@@ -180,7 +180,7 @@ REALlast := last
     return out
 }
 
-func size_t InStr(str *string, str *what) {
+func size_t InStr(char *string, char *what) {
     size_t len := strlen(string)
     size_t lenWhat := strlen(what)
     
@@ -197,7 +197,7 @@ func size_t InStr(str *string, str *what) {
 }
 
 
-func str *SubStr(str *string, size_t num1, size_t num2) {
+func char *SubStr(char *string, size_t num1, size_t num2) {
 
     if (!string or num1 < 1 or num2 < 0) { 
         return null
@@ -211,10 +211,10 @@ func str *SubStr(str *string, size_t num1, size_t num2) {
     ; make it 1 indexed
     num1--
 
-    str *line := string
+    char *line := string
     line := &string[num1]
 
-    str *out := malloc(num2 + 1)
+    char *out := malloc(num2 + 1)
     if (!out) {
         perror("malloc failed")
         return null
@@ -223,7 +223,7 @@ func str *SubStr(str *string, size_t num1, size_t num2) {
     out[num2] := (char)0
     return out
 }
-func str *StrReplace(str *string, str *find, str *replace) {
+func char *StrReplace(char *string, char *find, char *replace) {
 
     size_t len := strlen(string)
     size_t lenFind := strlen(find)
@@ -240,7 +240,7 @@ func str *StrReplace(str *string, str *find, str *replace) {
     ;printf("%d`n", count)
 
     size_t outLen := len + count * (lenReplace - lenFind)
-    str *out := malloc(outLen + 1) ; +1 for null terminator
+    char *out := malloc(outLen + 1) ; +1 for null terminator
     size_t doWeAppend := 0
     size_t diff := 0
 
@@ -426,78 +426,55 @@ char* StrReplaceBoundaries(const char* input, const char* target, const char* re
 
 ___c end
 
+func char **arrSplit(char *string, char del, size_t countARR) {
+    size_t totalLen := strlen(string)
+    size_t totalMem := countARR * sizeof(char *) + totalLen + 1
 
-func str **arrSplit(str *string, str del) {
+    char *block := malloc(totalMem)
+    char **ARR := (char **)block
+    char *strData := (char *)(block + countARR * sizeof(char *))
 
-size_t countARR := countChars(string, del) + 1
+    size_t strIndex := 0
+    size_t writePos := 0
 
-str **ARR := malloc(countARR * sizeof(char *))
+    Loop, % countARR {
+        size_t start := strIndex
+        size_t len := 0
 
+        ; Find length of next substring
+        while (string[strIndex] != 0 && string[strIndex] != del) {
+            strIndex++
+            len++
+        }
 
-size_t len := strlen(string)
+        ; Store pointer to current write position
+        ARR[A_Index] := strData + writePos
 
-size_t count := 0
-size_t countTemp := 0
+        ; Copy characters into result
+        Loop, % len {
+            strData[writePos] := string[start + A_Index]
+            writePos++
+        }
 
+        ; Null-terminate
+        strData[writePos] := 0
+        writePos++
 
-str *temp := malloc(len + 1)
-if (!temp) {
-    perror("malloc failed")
-    return null
-}
+        ; Skip delimiter
+        if (string[strIndex] = del) {
+            strIndex++
+        }
+    }
 
-Loop, % len {
-temp[A_Index] := 0
-}
-
-Loop, % len + 2 {
-
-if (A_Index = len) {
-
-ARR[count] := strdup(temp)
-count++
-memset(temp, 0, len)
-countTemp := 0
-
-}
-else if (A_Index = len + 1) {
-
-temp[countTemp] := (char)0
-countTemp++
-
-
-
-
-}
-else
-{
-
-if (string[A_Index] = del) {
-ARR[count] := strdup(temp)
-count++
-memset(temp, 0, len)
-countTemp := 0
-}
-else
-{
-temp[countTemp] := string[A_Index]
-countTemp++
-}
-
+    return ARR
 }
 
 
 
-}
-free(temp)
-return ARR
-}
 
-
-
-func str **resize(str **myArr, size_t *capacity) {
+func char **resize(char **myArr, size_t *capacity) {
     size_t newCapacity := (*capacity) * 2
-    str **newArr := realloc(myArr, newCapacity * sizeof(char *))
+    char **newArr := realloc(myArr, newCapacity * sizeof(char *))
     if (!newArr) {
         perror("realloc failed");
         ; Don't return old pointer if realloc fails
@@ -512,23 +489,23 @@ func str **resize(str **myArr, size_t *capacity) {
 
 main
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-str *myStr := malloc(30)
+char *myStr := malloc(30)
 strcpy(myStr, "HeLLo MaN whats UP")
 
-str *myStr2 := malloc(50)
+char *myStr2 := malloc(50)
 strcpy(myStr2, "    - hadsfouSDbkhjdsfdwaesdf")
-str *myStr3 := malloc(61)
+char *myStr3 := malloc(61)
 strcpy(myStr3, "     hadsfouSDbkhjdsfdwaesdf      ")
 
 printf("%d`n", countChars(myStr, ' '))
 
-str *res := StrSplit(myStr, ' ', 2)
-str *res2 := StringTrimLeft(myStr, 2)
-str *res3 := StringTrimRight(myStr, 4)
-str *res4 := StrLower(myStr)
-str *res5 := StrTitleCase(myStr)
-str *res6 := Trim(myStr2)
-str *res7 := Trim(myStr3)
+char *res := StrSplit(myStr, ' ', 2)
+char *res2 := StringTrimLeft(myStr, 2)
+char *res3 := StringTrimRight(myStr, 4)
+char *res4 := StrLower(myStr)
+char *res5 := StrTitleCase(myStr)
+char *res6 := Trim(myStr2)
+char *res7 := Trim(myStr3)
 
 printf("%s`n", res)
 printf("%s`n", res2)
@@ -568,14 +545,15 @@ printf("%s`n", StrReplaceBoundaries("var;var.var,var(var)", "var", "R")); ; // "
 printf("%s`n", StrReplaceBoundaries("var(var(var))", "var", "R"));        ; // "R(R(R))"
 printf("%s`n", StrReplaceBoundaries("((var))", "var", "replaced"));       ; // "((replaced))"
 
-; Allocate 20 bytes for an 18-char string (+1 for original '\0', +1 for arrSplit's temporary delimiter modification).
-; arrSplit needs this extra byte to safely append a temporary delimiter and then a new '\0' in-place.
-char var1[20] := "hello man whats up"
-str **arr := arrSplit(var1, ' ')
+
+char var1[] := "hello man whats up"
+; add +1 since there are 3 spaces but 4 words — that makes sense.
+size_t loopLen := countChars(var1, ' ') + 1
+; we need to pass the len
+char **arr := arrSplit(var1, ' ', loopLen)
 ; back to normal
 printf("|%s|`n", var1)
-; add +1 since there are 3 spaces but 4 words — that makes sense.
-int loopLen := countChars(var1, ' ') + 1
+
 printf("%d`n", loopLen)
 Loop, % loopLen {
     printf("%s`n", arr[A_Index])
@@ -585,9 +563,6 @@ Loop, % loopLen {
 ; back to normal
 printf("|%s|`n", var1)
 
-Loop, % loopLen {
-free(arr[A_Index])
-}
 free(arr)
 
 free(myStr)
@@ -607,7 +582,7 @@ free(res7)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-str *var11 := strdup("hello man whats up")
+char *var11 := strdup("hello man whats up")
 if (!var11) {
     perror("malloc failed")
     return -1
@@ -625,7 +600,7 @@ free(var11)
 
 size_t arr1_s := 5
 size_t arr1_i := 0
-str **arr1 := malloc(arr1_s * sizeof(char *))
+char **arr1 := malloc(arr1_s * sizeof(char *))
 
 arr1[arr1_i++] := strdup("hello")
 arr1[arr1_i++] := strdup("man")
@@ -658,26 +633,26 @@ free(arr1)
 
 
 
-; Allocate 20 bytes for an 18-char string (+1 for original '\0', +1 for arrSplit's temporary delimiter modification).
-; arrSplit needs this extra byte to safely append a temporary delimiter and then a new '\0' in-place.
-str *var12 := strdup("hello man whats up")
-str **arr2 := arrSplit(var12, ' ')
+
+char *var12 := strdup("hello`nman`n`n`nwhats`nup")
+; add +1 since there are 3 spaces but 4 words — that makes sense.
+size_t loopLen2 := countChars(var12, (char)10) + 1
+; we need to pass len
+char **arr2 := arrSplit(var12, (char)10, loopLen2)
 ; back to normal
 printf("|%s|`n", var12)
-; add +1 since there are 3 spaces but 4 words — that makes sense.
-int loopLen2 := countChars(var12, ' ') + 1
-printf("%d`n", loopLen2)
-Loop, % loopLen2 {
-    printf("%s`n", arr2[A_Index])
-    printf("%d`n", A_Index)
 
+printf("%zu`n", loopLen2)
+printf("--------------------------------------`n")
+Loop, % loopLen2 {
+        printf("||||||%d||||||`n", strlen(arr2[A_Index]))
+if (strlen(arr2[A_Index]) > 0) {
+    printf("%zu %s`n", A_Index, arr2[A_Index])    
+}
 }
 ; back to normal
 printf("|%s|`n", var12)
 free(var12)
-Loop, % loopLen2 {
-free(arr2[A_Index])
-}
 free(arr2)
 
 

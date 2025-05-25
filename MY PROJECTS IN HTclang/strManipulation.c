@@ -345,43 +345,37 @@ char* StrReplaceBoundaries(const char* input, const char* target, const char* re
     // } // Else, use the existing output buffer
     return output;
 }
-char **arrSplit(char *string, char del) {
-    size_t countARR = countChars(string, del) + 1;
-    char **ARR = malloc(countARR * sizeof(char *));
-    size_t len = strlen(string);
-    size_t count = 0;
-    size_t countTemp = 0;
-    char *temp = malloc(len + 1);
-    if (!temp) {
-        perror("malloc failed");
-        return NULL;
-    }
-    for (size_t A_Index11 = 0; A_Index11 < len + 0; A_Index11++) {
-        temp[A_Index11] = 0;
-    }
-    for (size_t A_Index12 = 0; A_Index12 < len + 2 + 0; A_Index12++) {
-        if (A_Index12 == len) {
-            ARR[count] = strdup(temp);
-            count++;
-            memset(temp, 0, len);
-            countTemp = 0;
+char **arrSplit(char *string, char del, size_t countARR) {
+    size_t totalLen = strlen(string);
+    size_t totalMem = countARR * sizeof(char *) + totalLen + 1;
+    char *block = malloc(totalMem);
+    char **ARR = (char **)block;
+    char *strData = (char *)(block + countARR * sizeof(char *));
+    size_t strIndex = 0;
+    size_t writePos = 0;
+    for (size_t A_Index11 = 0; A_Index11 < countARR + 0; A_Index11++) {
+        size_t start = strIndex;
+        size_t len = 0;
+        // Find length of next substring
+        while (string[strIndex] != 0 && string[strIndex] != del) {
+            strIndex++;
+            len++;
         }
-        else if (A_Index12 == len + 1) {
-            temp[countTemp] = (char)0;
-            countTemp++;
-        } else {
-            if (string[A_Index12] == del) {
-                ARR[count] = strdup(temp);
-                count++;
-                memset(temp, 0, len);
-                countTemp = 0;
-            } else {
-                temp[countTemp] = string[A_Index12];
-                countTemp++;
-            }
+        // Store pointer to current write position
+        ARR[A_Index11] = strData + writePos;
+        // Copy characters into result
+        for (size_t A_Index12 = 0; A_Index12 < len + 0; A_Index12++) {
+            strData[writePos] = string[start + A_Index12];
+            writePos++;
+        }
+        // Null-terminate
+        strData[writePos] = 0;
+        writePos++;
+        // Skip delimiter
+        if (string[strIndex] == del) {
+            strIndex++;
         }
     }
-    free(temp);
     return ARR;
 }
 char **resize(char **myArr, size_t *capacity) {
@@ -447,14 +441,13 @@ int main(int argc, char* argv[]) {
     printf("%s\n", StrReplaceBoundaries("var;var.var,var(var)", "var", "R"));
     printf("%s\n", StrReplaceBoundaries("var(var(var))", "var", "R"));
     printf("%s\n", StrReplaceBoundaries("((var))", "var", "replaced"));
-    // Allocate 20 bytes for an 18-char string (+1 for original '\0', +1 for arrSplit's temporary delimiter modification).
-    // arrSplit needs this extra byte to safely append a temporary delimiter and then a new '\0' in-place.
-    char var1[20] = "hello man whats up";
-    char **arr = arrSplit(var1, ' ');
+    char var1[] = "hello man whats up";
+    // add +1 since there are 3 spaces but 4 words — that makes sense.
+    size_t loopLen = countChars(var1, ' ') + 1;
+    // we need to pass the len
+    char **arr = arrSplit(var1, ' ', loopLen);
     // back to normal
     printf("|%s|\n", var1);
-    // add +1 since there are 3 spaces but 4 words — that makes sense.
-    int loopLen = countChars(var1, ' ') + 1;
     printf("%d\n", loopLen);
     for (size_t A_Index13 = 0; A_Index13 < loopLen + 0; A_Index13++) {
         printf("%s\n", arr[A_Index13]);
@@ -462,9 +455,6 @@ int main(int argc, char* argv[]) {
     }
     // back to normal
     printf("|%s|\n", var1);
-    for (size_t A_Index14 = 0; A_Index14 < loopLen + 0; A_Index14++) {
-        free(arr[A_Index14]);
-    }
     free(arr);
     free(myStr);
     free(myStr2);
@@ -505,34 +495,33 @@ int main(int argc, char* argv[]) {
     arr1[arr1_i++] = strdup("man");
     arr1[arr1_i++] = strdup("whats");
     arr1[arr1_i++] = strdup("up");
-    for (size_t A_Index15 = 0; A_Index15 < arr1_i + 0; A_Index15++) {
-        printf("%s\n", arr1[A_Index15]);
+    for (size_t A_Index14 = 0; A_Index14 < arr1_i + 0; A_Index14++) {
+        printf("%s\n", arr1[A_Index14]);
     }
     // free arr1
-    for (size_t A_Index16 = 0; A_Index16 < arr1_i + 0; A_Index16++) {
-        free(arr1[A_Index16]);
+    for (size_t A_Index15 = 0; A_Index15 < arr1_i + 0; A_Index15++) {
+        free(arr1[A_Index15]);
     }
     free(arr1);
     //;;;;;;;;;;;;;;;;;;;;;;
-    // Allocate 20 bytes for an 18-char string (+1 for original '\0', +1 for arrSplit's temporary delimiter modification).
-    // arrSplit needs this extra byte to safely append a temporary delimiter and then a new '\0' in-place.
-    char *var12 = strdup("hello man whats up");
-    char **arr2 = arrSplit(var12, ' ');
+    char *var12 = strdup("hello\nman\n\n\nwhats\nup");
+    // add +1 since there are 3 spaces but 4 words — that makes sense.
+    size_t loopLen2 = countChars(var12, (char)10) + 1;
+    // we need to pass len
+    char **arr2 = arrSplit(var12, (char)10, loopLen2);
     // back to normal
     printf("|%s|\n", var12);
-    // add +1 since there are 3 spaces but 4 words — that makes sense.
-    int loopLen2 = countChars(var12, ' ') + 1;
-    printf("%d\n", loopLen2);
-    for (size_t A_Index17 = 0; A_Index17 < loopLen2 + 0; A_Index17++) {
-        printf("%s\n", arr2[A_Index17]);
-        printf("%d\n", A_Index17);
+    printf("%zu\n", loopLen2);
+    printf("--------------------------------------\n");
+    for (size_t A_Index16 = 0; A_Index16 < loopLen2 + 0; A_Index16++) {
+        printf("||||||%d||||||\n", strlen(arr2[A_Index16]));
+        if (strlen(arr2[A_Index16]) > 0) {
+            printf("%zu %s\n", A_Index16, arr2[A_Index16]);
+        }
     }
     // back to normal
     printf("|%s|\n", var12);
     free(var12);
-    for (size_t A_Index18 = 0; A_Index18 < loopLen2 + 0; A_Index18++) {
-        free(arr2[A_Index18]);
-    }
     free(arr2);
     return 0;
 }
